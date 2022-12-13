@@ -1,6 +1,9 @@
 package com.springboot.api.controller;
 
 import com.springboot.api.dto.MemeberDto;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,5 +32,11 @@ public class PutController {
     public MemeberDto putMemberDto2(@RequestBody MemeberDto memberDto){
         return memberDto;
     }
+    @PutMapping("/member3")
+    public ResponseEntity<?> http(@RequestBody MemeberDto memeberDto){
+        return ResponseEntity.status(HttpStatus.ACCEPTED)
+                .body(memeberDto);
+    }
+
 
 }
